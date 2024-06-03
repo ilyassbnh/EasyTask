@@ -1,7 +1,8 @@
 <?php
 require_once 'config.php';
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();}
 
 // Include appropriate tasks view based on user's role
 if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {

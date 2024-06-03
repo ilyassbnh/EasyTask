@@ -1,5 +1,7 @@
 <?php
 require_once 'config.php';
+require_once 'Controllers/AuthController.php';
+require_once 'Controllers/TaskController.php';
 
 session_start();
 
@@ -33,4 +35,4 @@ switch ($action) {
         $authController->login();
         break;
 }
-?>
+
