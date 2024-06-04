@@ -37,7 +37,12 @@
     <ul>
         <?php foreach ($tasks as $task): ?>
             <li class="<?php echo $task['completed'] ? 'completed' : ''; ?>">
-                <?php echo htmlspecialchars($task['title']); ?> - <?php echo htmlspecialchars($task['description']); ?>
+                <form action="index.php" method="GET" style="display:inline;">
+                    <input type="hidden" name="action" value="markComplete">
+                    <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+                    <input type="checkbox" name="completed" <?php echo $task['completed'] ? 'checked' : ''; ?> onchange="this.form.submit()">
+                    <?php echo htmlspecialchars($task['title']); ?> - <?php echo htmlspecialchars($task['description']); ?>
+                </form>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -47,7 +52,7 @@
 </body>
 </html>
 <style>
-    /* General styles */
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;

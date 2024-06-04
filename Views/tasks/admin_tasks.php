@@ -16,10 +16,7 @@
     <a href="index.php?action=create">Créer une nouvelle tâche</a>
     <ul>
         <?php foreach ($tasks as $task): ?>
-            <li class="<?php echo $task['completed'] ? 'completed' : ''; ?>">
-                <form method="post" action="index.php?action=toggleComplete&id=<?php echo $task['id']; ?>" style="display: inline;">
-                    <input type="checkbox" onchange="this.form.submit()" <?php echo $task['completed'] ? 'checked' : ''; ?>>
-                </form>
+            <li class="<?php echo $task['completed'] ? 'completed' : ''; ?>">     
                 <?php echo htmlspecialchars($task['title']); ?> - <?php echo htmlspecialchars($task['description']); ?>
                 <a href="index.php?action=edit&id=<?php echo $task['id']; ?>">Modifier</a>
                 <a href="index.php?action=delete&id=<?php echo $task['id']; ?>">Supprimer</a>

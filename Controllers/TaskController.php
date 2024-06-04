@@ -113,7 +113,7 @@ class TaskController {
         $task = $this->taskModel->findById($id);
 
         if ($_SESSION['role'] == 'admin' || $_SESSION['user_id'] == $task['user_id']) {
-            $this->taskModel->update($id, $task['title'], $task['description'], $task['category'], $task['priority'], true);
+            $this->taskModel->update($id, $task['title'], $task['description'], $task['category'], $task['priority'], 1);
             header('Location: index.php?action=tasks');
             exit;
         } else {

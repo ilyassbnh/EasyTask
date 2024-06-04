@@ -31,8 +31,11 @@ switch ($action) {
     case 'delete':
         $taskController->delete($_GET['id']);
         break;
+    case 'markComplete':
+        $taskController->markComplete($_GET['id']);
+        break;
     default:
         $authController->login();
         break;
 }
-
+?>
